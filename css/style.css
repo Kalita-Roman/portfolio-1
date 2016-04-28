@@ -42,6 +42,8 @@ a, a:hover{
 }
 
 .wrapper {
+	width: 100%;
+	min-width: 500px;
 	float: left;
 	overflow: hidden;
 }
@@ -51,7 +53,6 @@ a, a:hover{
 	position: relative;
 	float: left;
 }
-
 
 .cont-width {
 	width: 1160px;
@@ -71,6 +72,8 @@ a, a:hover{
 }
 
 .nav {
+	width: 100%;
+	float: left;
 	position: relative;
 }
 
@@ -681,27 +684,32 @@ a, a:hover{
 	background-color: #fff;
 }
 
-.ln-wedo .wedo {
+.wedo {
+	width: 100%;
 	float: left;
 	padding-top: 80px;
 	padding-bottom: 60px;
 }
 
-.ln-wedo .wedo .content ul {
+.wedo .content {
 	width: 100%;
 	float: left;
-	margin-bottom: 32px;
+	overflow: hidden;
 }
 
-.ln-wedo .wedo .content ul li {
-	width: 260px;
+.wedo .content ul {
+	float: left;
+	margin-bottom: 32px;
+	overflow: hidden;
+	margin-right: -30px;
+}
+
+.wedo .content ul li {
+	width: 25%;
 	height: 220px;
 	float: left;
 	margin-bottom: 90px;
-}
-
-.ln-wedo .wedo .content ul li:not(:nth-child(4n)) {
-	margin-right: 30px;
+	padding-right: 30px;
 }
 
 .ln-wedo .wedo .content ul li .picture-box {
@@ -717,6 +725,20 @@ a, a:hover{
 	background-image: url('../pictures/spline.png');
 	background-repeat: no-repeat;
 }
+
+@media (max-width: 1160px) {
+	.ln-wedo .wedo .content ul li {
+		width: 33.33%;
+		margin-bottom: 60px;
+	}
+}
+@media (max-width: 800px) {
+	.ln-wedo .wedo .content ul li {
+		width: 50%;
+		margin-bottom: 30px;
+	}
+}
+
 
 .ln-wedo .wedo .content ul li .picture-box .picture.cogs {
 	background-position: 0 0;
@@ -749,7 +771,7 @@ a, a:hover{
 	background-color: #3a454d;
 }
 
-.ln-features .features {
+.features {
 	float: left;
 	padding-top: 90px;
 	padding-bottom: 120px;
@@ -771,6 +793,23 @@ a, a:hover{
 	overflow: hidden;
 }
 
+@media (max-width: 1160px) { 
+	.ln-features .features ul li {
+		width: 100%;
+		position: relative;
+	}
+
+	.ln-features .features ul li .picture-box {
+		float: left;
+	}
+
+	.ln-features .features ul li .note {
+		float: left;
+		position: absolute;
+		padding-left: 400px;
+	}
+}
+
 .ln-features .h-topic {
 	margin-bottom: 25px;
 	text-align: left;
@@ -786,14 +825,14 @@ a, a:hover{
 	background-color: #fff;
 }
 
-.ln-stay .stay {
+.stay {
 	width: 100%;
 	float: left;
 	padding-top: 60px;
 	padding-bottom: 100px;
 }
 
-.ln-stay .stay .map{
+.stay .map{
 	width: 100%;
 	height: 345px;
 	background-color: #d4d6d2;
@@ -802,65 +841,74 @@ a, a:hover{
 	background-repeat: no-repeat;
 }
 
-.ln-stay .stay .contact {
+@media (max-width: 1160px) { 
+	.stay .map {
+		display: none;
+	}
+}
+
+.stay .contact {
 	float: left;
 }
 
-.ln-stay .stay .contact .text {
+.stay .contact .text {
 	width: 50%;
 	float: left;
 	padding-top: 55px;
 }
 
-.ln-stay .h-topic {
+.stay .h-topic {
 	margin-bottom: 35px;
 	color: #292f36;
 }
 
-.ln-stay .p-topic {
+.stay .p-topic {
 	color: #8d8f92;
 	text-align: left;
 }
 
-.ln-stay .p-topic:not(:last-child) {
+.stay .p-topic:not(:last-child) {
 	margin-bottom: 35px;
 }
 
-.ln-stay .form {
+.stay .form {
 	width: 50%;
 	float: left;
 	position: relative;
 }
 
-.ln-stay form {
+.stay form {
 	width: 100%;
 	height: 400px;
 	padding: 30px 15px 30px 30px;
 	float: left;
 	position: absolute;
 	top: -125px;
-
 	background-color: #fff;
 }
 
-.ln-stay form div {
+.stay form div {
 	float: left;
 	margin-bottom: 30px;
 }
 
-.ln-stay form div > * {
+.stay form div > * {
 	display: block;
 }
 
-.ln-stay form div {
+.stay form div {
 	padding-right: 15px;
 }
 
-.ln-stay form div:not(:last-of-type) {
+.stay form .input{
 	width: 50%;
 }
 
-.ln-stay form div:last-of-type {
+.ln-stay form .message{
+	width: 100%;
+}
+
+.ln-stay form .btn{
 	width: 100%;
 }
 
@@ -873,13 +921,10 @@ a, a:hover{
 }
 
 .ln-stay form div textarea {
-	max-width: 520px;
+	max-width: 100%;
 	max-height: 80px;
 }
-
-
-
-.ln-stay .inp {
+.stay .inp {
 	width: 100%;
 	line-height: 1em;
 	padding: 0.8em;
@@ -889,7 +934,7 @@ a, a:hover{
 	font-size: 1em;
 }
 
-.ln-stay form > input {
+.stay form input[type="submit"] {
 	width: 150px;
 	line-height: 3em;
 	float: left;
@@ -901,26 +946,85 @@ a, a:hover{
 	background-color: #23b7a4;
 }
 
+@media (max-width: 1160px) { 
+	.stay .contact .text {
+		padding: 0;
+		width: 100%;
+	}
+
+	.stay .contact .text * {
+		text-align: center;
+	}
+
+	.stay .contact .text p {
+		margin-bottom: 10px; 
+	}
+
+	.stay .contact .text *:last-child {
+		margin-bottom: 25px;
+	}
+
+	.stay .form {
+		width: 100%;
+	}
+
+	.stay form {
+		position: relative;
+		top: 0;
+	}
+
+	.stay form input[type="submit"] {
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+@media (max-width: 800px) { 
+	.stay form .input {
+		width: 100%
+	}
+}
+
 .ln-footer {
+	background-color: #3a454d;
+}
+
+.footer {
+	width: 100%;
 	height: 100px;
 	float: left;
 	position: relative;
 	color: #fff;
-	background-color: #3a454d;
 }
 
-.ln-footer .copyright {
+.footer .copyright {
 	position: absolute;
 	left: 0;
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-.ln-footer .social {
+.footer .social {
 	position: absolute;
-	right: 0;
+	right: 0%;
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+@media (max-width: 1160px) { 
+	.footer .copyright {
+		top: 75%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+
+	.footer .social {
+		top: 25%;
+		right: 50%;
+		transform: translate(50%, -50%);
+	}
 }
 
 .ln-footer .social li {
